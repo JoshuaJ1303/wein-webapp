@@ -19,7 +19,7 @@ def clean_data(input: list, id: str)->pd.DataFrame:
     input.fillna(np.nan, inplace=True)  # Replace None values with 'NA'
 
     # Drop rows that are full NA
-    data = input.dropna(subset="Name")  # Drop rows where all elements are NA
+    data = input.dropna(subset=[id])  # Drop rows where all elements are NA
 
 
     return data

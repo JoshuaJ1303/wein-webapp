@@ -35,9 +35,9 @@ def index():
     list_data = get_sheet_contents(spreadsheet_id, 
                               range_name='Weininventur') # Adjust range as needed
     
-    list_data = pd.DataFrame(list_data[1:], columns=list_data[0])
+    df_raw = pd.DataFrame(list_data[1:], columns=list_data[0])
 
-    df_cleaned = clean_data(list_data, "Name")
+    df_cleaned = clean_data(df_raw, "Name")
     
     bar_fig_json = create_barchart(df=df_cleaned, ID="Jahrgang")
     pie_fig_json = create_piechart(df=df_cleaned, ID="Land")
